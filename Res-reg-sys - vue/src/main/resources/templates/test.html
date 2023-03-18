@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:include="admin_common :: commonHeader"></div>
+</head>
+<body>
+
+<div class = "content">
+    <!--左侧导航栏-->
+    <div th:fragment="commonLeft" class = "content-left">
+        <div class = "left-title">
+            <a href = "#">预约挂号系统后台</a>
+        </div>
+
+        <!--水平线-->
+        <div class = "seg"></div>
+
+        <!--菜单栏导航-->
+        <div class = "nav" th:each="partt:${parts}">
+            <!--每一个菜单栏项-->
+            <div class = "nav-menu">
+                <!--主标题-->
+                <div class = "nav-title" th:text="${partt.partsName}"></div>
+                <!--子标题-->
+                <div class = "nav-content" th:each="par:${partt.part}">
+                    <a href="@{/department/part1}" th:text="${par.name}"></a>
+                </div>
+            </div>
+        <div>
+        <!--水平线-->
+        <div class = "seg"></div>
+    </div>
+
+ <div th:replace="admin_common :: commonScript">
+
+</div>
+
+</div>
+</body>
+</html>

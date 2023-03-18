@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang = "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:include="admin_common :: commonHeader"></div>
+
+</head>
+<body style="height: 100%">
+<div class = "content">
+    <!--左侧导航栏-->
+    <div th:replace="admin_common :: commonLeft"></div>
+
+    <!--右侧内容区-->
+    <div class = "content-right">
+        <h1>内容区</h1>
+    </div>
+
+</div>
+<div th:replace="admin_common :: commonScript">
+
+</div>
+</body>
+</html>

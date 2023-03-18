@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.levia.resregsys.dao.RegisterDataDao">
+
+    <select id="getRegisterList" resultType="com.levia.resregsys.bean.RegisterData">
+        select * from register_data;
+    </select>
+
+    <select id="getRegisterByDate" resultType="com.levia.resregsys.bean.RegisterData">
+        select * from register_data where date(register_date) = #{registerDate};
+
+    </select>
+
+    <select id="getRegisterByIdCard" resultType="com.levia.resregsys.bean.RegisterData">
+        select * from register_data where register_data.id_card = #{idCard};;
+    </select>
+
+    <select id="getRegisterByDoctor" resultType="com.levia.resregsys.bean.RegisterData">
+        select * from register_data where register_data.doctor_name = #{doctorName};;
+    </select>
+
+    <select id="getRegisterByDoctorId" resultType="com.levia.resregsys.bean.RegisterData">
+        select * from register_data where register_data.doctor_id = #{doctorId}
+        and register_data.register_date = #{date};
+    </select>
+    <select id="getRegisterPage" resultType="com.levia.resregsys.bean.RegisterData">
+        select * from register_data limit #{currentPage} , #{pageSize};
+    </select>
+
+    <select id="getDoctorTodayCount" resultType="int">
+        SELECT
+            count(*)
+        FROM
+            count_register_data
+        WHERE
+            count_register_data.date = #{date} and count_register_data.doctor_id = #{doctorId};
+    </select>
+    <select id="getDoctorTodayCountNum" resultType="int">
+        SELECT
+            count_register_data.now_index
+        FROM
+            count_register_data
+        WHERE
+            count_register_data.date = #{date} and count_register_data.doctor_id = #{doctorId};
+    </select>
+
+    <update id="modifyDoctorTodayCountNum">
+        update `count_register_data`
+        <set>
+            count_register_data.now_index = #{nowIndex}
+        </set>
+        where `doctor_id` = #{doctorId}
+    </update>
+    <select id="haveOrNotData" resultType="int">
+        select count(*) from doctor_date_count where doctor_id = #{doctorId} and register_datetime = #{date};
+    </select>
+    <select id="countData" resultType="int">
+        select register_count from doctor_date_count where doctor_id = #{doctorId} and register_datetime = #{date};
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.levia.resregsys.dao.UserInsertDao">
+
+    <insert id="insertDoctor">
+        insert into doctor(doctor_id, username,password,part_type,`using`)
+        values
+            (#{doctorId}, #{username}, #{password}, #{partType},#{using})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.levia.resregsys.dao.UserSearchDao">
+    <!--    <insert id="insert">-->
+    <!--        insert into good(wname,jdPrice) values (#{wname},#{jdPrice})-->
+    <!--    </insert>-->
+
+<!--    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">-->
+<!--        insert into good(goods_id,goods_name,short_name,normal_price,sales_tip,hd_url)-->
+<!--        values-->
+<!--        <foreach collection="entities" item="entity" separator=",">-->
+<!--            (#{entity.goods_id}, #{entity.goods_name}, #{entity.short_name}, #{entity.normal_price},-->
+<!--            #{entity.sales_tip}, #{entity.hd_url})-->
+<!--        </foreach>-->
+<!--    </insert>-->
+    <select id="selectDoctor" resultType="com.levia.resregsys.bean.Doctor">
+        select * from doctor where username=#{username} limit 1;
+    </select>
+    <select id="selectDoctorName" resultType="com.levia.resregsys.bean.Doctor">
+        select * from doctor where username=#{username};
+    </select>
+    <select id="selectDoctorUid" resultType="com.levia.resregsys.bean.Doctor">
+        select * from doctor where doctor_id=#{doctorId} limit 1;
+    </select>
+    <select id="selectDoctorType" resultType="com.levia.resregsys.bean.Doctor">
+        select * from doctor where part_type=#{partType};
+    </select>
+    <select id="selectPatient" resultType="com.levia.resregsys.bean.User">
+        select * from patient where username=#{username} limit 1;
+    </select>
+    <select id="selectCount" resultType="int">
+        select COUNT(*) from patient;
+    </select>
+    <select id="getDoctorList" resultType="com.levia.resregsys.bean.Doctor">
+        select * from doctor limit 10;
+    </select>
+    <select id="getUserList" resultType="com.levia.resregsys.bean.User">
+        select * from patient limit 10;
+    </select>
+    <select id="getAdminPass" resultType="String">
+        select * from `admin` limit 1;
+    </select>
+</mapper>

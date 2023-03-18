@@ -1,0 +1,103 @@
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    body {
+        background-color: rgb(10, 158, 133);
+    }
+
+    .post {
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .post ul li input[type=text],
+    .post ul li input[type=password],
+    .post ul li input[type=email] {
+        font-size: 16px;
+    }
+
+    .post ul li input {
+        width: 275px;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .post ul li input[type=submit] {
+        width: 100px;
+        height: 40px;
+    }
+</style>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    body {
+        background-color: rgb(10, 158, 133);
+    }
+
+    .login {
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .login ul li input[type=text],
+    .login ul li input[type=password] {
+        font-size: 16px;
+    }
+
+    .login ul li input {
+        width: 275px;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .login ul li input[type=button] {
+        width: 100px;
+        height: 40px;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>预约挂号系统</title>
+</head>
+
+<body>
+<form class="post" method="post" th:action="@{/register_patient}">
+    <h2>注册</h2>
+    <ul>
+        <li><label style="color: red" th:text="${msg}"></label><li>
+        <li>用户名：<input type="text" name="username"></li>
+        <li>密&emsp;码：<input type="password" name="password"></li>
+        <li>邮&emsp;箱：<input type="email" required="required" name="email"></li>
+        <li><input type="submit" value="注册"></li>
+        <li>已有帐户？<a href="/login_patient">点击登录</a></li>
+    </ul>
+
+
+</form>
+</body>

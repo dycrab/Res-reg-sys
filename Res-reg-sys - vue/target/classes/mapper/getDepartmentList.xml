@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.levia.resregsys.dao.DepartmentDao">
+
+    <select id="getDepartmentList" resultType="com.levia.resregsys.bean.Department">
+        select * from department
+    </select>
+</mapper>

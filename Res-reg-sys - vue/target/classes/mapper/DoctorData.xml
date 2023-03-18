@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.levia.resregsys.dao.DoctorDataDao">
+
+    <select id="getDoctorAllData" parameterType="map" resultType="com.levia.resregsys.bean.DoctorAllData">
+        select * from doctor;
+    </select>
+
+    <select id="getDoctorAllDataById" parameterType="map" resultType="com.levia.resregsys.bean.DoctorAllData">
+        select * from doctor where doctor.doctor_id = #{doctorId};
+    </select>
+    <select id="getDoctorDataByName" parameterType="map" resultType="com.levia.resregsys.bean.DoctorAllData">
+        select * from doctor where doctor.doctor_name = #{doctorName};
+    </select>
+
+    <select id="getDoctorDataByPartType" parameterType="map" resultType="com.levia.resregsys.bean.DoctorAllData">
+        select * from doctor where doctor.part_type = #{partType};
+    </select>
+
+    <select id="getPartTypeId" parameterType="map" resultType="int">
+        select department.id from department where department.part_type = #{partType} LIMIT 1 ;
+    </select>
+
+    <insert id="addDoctor" useGeneratedKeys="true" keyProperty="doctorId">
+        insert into doctor( doctor_name, PTR, password,part_type,`using`, sex, birth, part_type_id,good)
+        values
+            (#{doctorName}, #{PTR}, #{password}, #{partType},#{using},#{sex},#{birth},#{partTypeId}, #{good})
+    </insert>
+
+    <update id="modifyDoctor">
+        update `doctor`
+        <set>
+            `doctor_name` = #{doctorName},
+            `PTR` = #{PTR},
+            `password` = #{password},
+            `using` = #{using},
+            `part_type` = #{partType},
+            `sex` = #{sex},
+            `birth` = #{birth},
+            `part_type_id` = #{partTypeId},
+            `good` = #{good}
+
+
+        </set>
+        where `doctor_id` = #{doctorId}
+    </update>
+
+
+    <delete id="deleteDoctor">
+        delete from doctor where doctor.doctor_id = #{doctorId}
+    </delete>
+
+    <select id="accountTest" resultType="int">
+        select count(*)  from doctor where doctor.doctor_id = #{doctorId}
+    </select>
+
+    <select id="passwordTest" resultType="int">
+        select count(*)  from doctor where doctor.doctor_id = #{doctorId} and doctor.password = #{password}
+    </select>
+</mapper>
+
+

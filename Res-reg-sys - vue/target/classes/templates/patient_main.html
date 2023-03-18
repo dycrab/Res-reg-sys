@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="css/department.css" type="text/css" rel="stylesheet">
+    <!--    <script type='text/javascript' src='js/department.js'></script>-->
+
+</head>
+
+<body>
+<div class="container">
+    <main class="main" role="main">
+        <div class="mask"></div>
+        <header>
+            <h1>预约挂号系统</h1>
+        </header>
+        <section class="content" style="width: 100%">
+            <p style="margin-left: 37%">点击左上角菜单键预约</p>
+
+            <p></p>
+
+            <!--            <p>Scelerisque condimentum pulvinar accumsan eget at nibh aliquet a maecenas lectus magnis per metus a mattis. Non ullamcorper dapibus in nostra a vitae scelerisque fusce ullamcorper lacinia cum magna vestibulum malesuada eros mus a phasellus a egestas pulvinar pretium aliquet. Adipiscing.</p>-->
+        </section>
+    </main>
+    <aside class="sidebar" style="overflow:auto" >
+        <nav class="nav1" >
+            <ul>
+                <li class="nav-title">热门科室</li>
+            </ul>
+            <!--            <a id="parts" style="text-align: center"  ></a>-->
+            <ul class="nav-items" style="display: unset"  th:each="par:${hot.part}">
+
+                <li ><a th:href="@{/part/(id=${par.id})}" class="nav-link" th:text="${par.name}"></a></li>
+                <!--                <li><a href="#" class="nav-link">Products</a></li>-->
+                <!--                <li><a href="#" class="nav-link">Services</a></li>-->
+                <!--                <li><a href="#" class="nav-link">About</a></li>-->
+                <!--                <li><a href="#" class="nav-link">News</a></li>-->
+            </ul>
+            <div class="sidebar-separator"></div>
+        </nav>
+        <nav class="nav" th:each="partt:${parts}">
+            <ul>
+                <li class="nav-title" th:text="${partt.partsName}"></li>
+            </ul>
+            <!--            <a id="parts" style="text-align: center"  ></a>-->
+            <ul class="nav-items" style="display: unset"  th:each="par:${partt.part}">
+
+                <li ><a href="#" class="nav-link" th:text="${par.name}"></a></li>
+                <!--                <li><a href="#" class="nav-link">Products</a></li>-->
+                <!--                <li><a href="#" class="nav-link">Services</a></li>-->
+                <!--                <li><a href="#" class="nav-link">About</a></li>-->
+                <!--                <li><a href="#" class="nav-link">News</a></li>-->
+            </ul>
+            <div class="sidebar-separator"></div>
+        </nav>
+    </aside>
+    <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</div>
+<script>
+    var elements;
+    function showSidebarIn(){
+        document.getElementById("parts").addEventListener("click", displayIn);
+    }
+    function displayIn(){
+        elements = document.getElementsByClassName("nav-items")
+        elements.setAttribute("display", "unset");
+    }
+    var container = document.querySelector('.container');
+    var main = document.querySelector('.main');
+
+    function toggleSidebar(){
+        isShowingSidebar() ? hideSidebar() : showSidebar();
+    }
+
+    function showSidebar(){
+        container.classList.add('show-sidebar');
+    }
+
+    function hideSidebar(){
+        container.classList.remove('show-sidebar');
+    }
+
+    function isShowingSidebar(){
+        return container.classList.contains('show-sidebar');
+    }
+    window.onload=function (){
+        document.querySelector('.hamburger').addEventListener('click', toggleSidebar, false);
+
+        container.addEventListener('click', function(e){
+            if(isShowingSidebar() && main.contains(e.target)){
+                e.preventDefault();
+                hideSidebar();
+            }
+        }, true);
+    }
+
+</script>
+</body>
+</html>

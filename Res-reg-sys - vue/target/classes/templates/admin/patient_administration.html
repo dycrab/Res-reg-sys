@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang = "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:include="admin_common :: commonHeader"></div>
+
+</head>
+<body style="height: 100%">
+<div class = "content">
+    <!--左侧导航栏-->
+    <div th:replace="admin_common :: commonLeft"></div>
+
+    <!--右侧内容区-->
+    <div class = "content-right">
+        <div class="right_header" style="height: 5%;text-align: center">
+            <h2>病人数据管理</h2>
+        </div>
+        <div id="sqlAccount" style="">
+            <div style="text-align: center">
+                <label style="color: red;text-align: center" th:text="${msg}"></label>
+            </div>
+
+            <div class="add_doctor">
+                <form class="add_doctor_form" method="post" th:action="@{/add_doctor}">
+                    <p style="text-align: center">添加账户</p>
+                    <table style="border: 1px solid transparent; frame:void;border-collapse: collapse">
+                        <tbody>
+                        <tr>
+                            <td>
+                                用户名：<input name="username" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                密　码：<input name="password" type="password" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                科　室：<input name="type" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="提交" style="width: 100px">
+                            </td>
+                        </tr>
+                        </tbody>
+
+
+                    </table>
+                </form>
+            </div>
+            <div class="delete_doctor">
+                <form class="delete_doctor_form" method="post" th:action="@{/delete_doctor}">
+                    <p style="text-align: center">删除账户(输入任一特征)</p>
+                    <table style="border: 1px solid transparent; frame:void;border-collapse: collapse">
+                        <thead>
+                        <tr>
+                            <th>
+
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                序　号：<input name="uid" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                用户名：<input name="username" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                科　室：<input name="type" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="提交" style="width: 100px">
+                            </td>
+                        </tr>
+                        </tbody>
+
+
+                    </table>
+                </form>
+            </div>
+            <div class="modify_doctor">
+                <form class="delete_doctor_form" method="post" th:action="@{/modify_doctor}">
+                    <p style="text-align: center">修改账户</p>
+                    <table style="border: 1px solid transparent; frame:void;border-collapse: collapse">
+                        <thead>
+                        <tr>
+                            <th>
+
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                序　号：<input name="uid" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                用户名：<input name="username" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                密　码：<input name="password" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                科　室：<input name="type" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                使　用：<input name="using" type="text" style="border-radius: 3px;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="提交" style="width: 100px">
+                            </td>
+                        </tr>
+                        </tbody>
+
+
+                    </table>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div th:replace="admin_common :: commonScript">
+
+</div>
+
+</body>
+</html>

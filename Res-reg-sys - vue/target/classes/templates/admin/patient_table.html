@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang = "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:include="admin_common :: commonHeader"></div>
+
+</head>
+<body style="height: 100%">
+<div class = "content">
+    <!--左侧导航栏-->
+    <div th:replace="admin_common :: commonLeft"></div>
+
+    <!--右侧内容区-->
+    <div class = "content-right">
+        <div class="right_header" style="height: 5%;text-align: center">
+            <h2>病人数据管理</h2>
+
+        </div>
+        <div id="showAccounts" >
+            <div id="table_header" style="height: 10%;text-align: center">病人账户展示</div>
+            <div id="doctor_table" style="height: 50%;">
+                <table  class="doctor_info">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>密码</th>
+                        <th>邮箱</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="gradeX" th:each="user,stauts:${users}">
+                        <td th:text="${stauts.count}"></td>
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.password}">
+                        <td th:text="${user.email}"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div th:replace="admin_common :: commonScript">
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+
+* {
+    margin:0;
+    padding:0;
+}
+
+#header_index{
+    width:100%;
+    height:10%;
+    position:absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#patient_choice{
+    background-color:yellow;
+    width:100%;
+    height:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    /* position: relative; */
+    
+}
+
+#doctor_choice{
+    background-color:red;
+    width:100%;
+    height:50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; */
+
+}
+
+#patient_btn{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#doctor_btn{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif
+
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang = "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+    <div th:fragment="commonHeader">
+        <meta charset = "UTF-8">
+        <meta name = "viewport"
+              content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+        <title>Admin控制台</title>
+        <link th:href="@{/css/admin.css}" type="text/css" rel="stylesheet">
+    </div>
+
+
+</head>
+<body style="height: 100%">
+<div class = "content">
+    <!--左侧导航栏-->
+    <div th:fragment="commonLeft" class = "content-left">
+        <div class = "left-title">
+            <a href = "#">预约挂号系统后台</a>
+        </div>
+
+        <!--水平线-->
+        <div class = "seg"></div>
+
+        <!--菜单栏导航-->
+        <div class = "nav">
+            <!--每一个菜单栏项-->
+            <div class = "nav-menu">
+                <!--主标题-->
+                <div class = "nav-title">病人数据管理</div>
+                <!--子标题-->
+                <div class = "nav-content">
+                    <a href = "/patient_administration">病人账户管理</a>
+                    <a href = "/patient_table">病人账户展示</a>
+                </div>
+            </div>
+
+            <!--每一个菜单栏项-->
+            <div class = "nav-menu">
+                <!--主标题-->
+                <div class = "nav-title">医生数据管理</div>
+                <!--子标题-->
+                <div class = "nav-content">
+                    <a href = "/doctor_administration">医生账户管理</a>
+                    <a href = "/doctor_table">医生账户展示</a>
+                </div>
+            </div>
+
+            <!--每一个菜单栏项-->
+            <div class = "nav-menu">
+                <!--主标题-->
+                <div class = "nav-title">其他数据管理</div>
+                <!--子标题-->
+                <div class = "nav-content">
+                    <a href = "#">类目查看</a>
+                    <a href = "#">类目删除</a>
+                </div>
+            </div>
+        </div>
+
+        <!--水平线-->
+        <div class = "seg"></div>
+    </div>
+
+
+
+</div>
+<div th:fragment="commonScript">
+    <script th:src="@{/js/jquery-1.10.2.min.js}"></script>
+    <script th:src="@{/js/admin_main.js}" ></script>
+</div>
+
+</body>
+</html>
